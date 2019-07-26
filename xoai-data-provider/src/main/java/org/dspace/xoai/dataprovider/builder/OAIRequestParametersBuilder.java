@@ -17,9 +17,12 @@ import org.dspace.xoai.dataprovider.parameters.OAICompiledRequest;
 import org.dspace.xoai.dataprovider.parameters.OAIRequest;
 import org.dspace.xoai.exceptions.InvalidResumptionTokenException;
 import org.dspace.xoai.model.oaipmh.Verb;
+import org.dspace.xoai.services.impl.SimpleResumptionTokenFormat;
 import org.dspace.xoai.services.impl.UTCDateProvider;
 
 import java.util.*;
+
+import javax.swing.text.SimpleAttributeSet;
 
 import static java.util.Arrays.asList;
 
@@ -81,7 +84,7 @@ public class OAIRequestParametersBuilder implements Builder<OAIRequest> {
     }
 
     public OAICompiledRequest compile () throws BadArgumentException, InvalidResumptionTokenException, UnknownParameterException, IllegalVerbException, DuplicateDefinitionException {
-        return this.build().compile();
+        return this.build().compile(new SimpleResumptionTokenFormat());
     }
 
     public OAIRequestParametersBuilder withSet(String set) {

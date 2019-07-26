@@ -50,7 +50,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers">List Identifiers definition</a>
      */
     public ListItemIdentifiersResult getItemIdentifiers(
-            List<ScopedFilter> filters, int offset, int length) throws OAIException;
+            List<ScopedFilter> filters, int offset, int length, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -65,7 +65,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers">List Identifiers definition</a>
      */
     public ListItemIdentifiersResult getItemIdentifiers(
-            List<ScopedFilter> filters, int offset, int length, Date from) throws OAIException;
+            List<ScopedFilter> filters, int offset, int length, Date from, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -80,7 +80,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers">List Identifiers definition</a>
      */
     public ListItemIdentifiersResult getItemIdentifiersUntil(
-            List<ScopedFilter> filters, int offset, int length, Date until) throws OAIException;
+            List<ScopedFilter> filters, int offset, int length, Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -96,7 +96,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers">List Identifiers definition</a>
      */
     public ListItemIdentifiersResult getItemIdentifiers(
-            List<ScopedFilter> filters, int offset, int length, Date from, Date until) throws OAIException;
+            List<ScopedFilter> filters, int offset, int length, Date from, Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -111,7 +111,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers">List Identifiers definition</a>
      */
     public ListItemIdentifiersResult getItemIdentifiers(
-            List<ScopedFilter> filters, int offset, int length, String setSpec) throws OAIException;
+            List<ScopedFilter> filters, int offset, int length, String setSpec, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -128,7 +128,7 @@ public interface ItemRepository {
      */
     public ListItemIdentifiersResult getItemIdentifiers(
             List<ScopedFilter> filters, int offset, int length, String setSpec,
-            Date from) throws OAIException;
+            Date from, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -145,7 +145,7 @@ public interface ItemRepository {
      */
     public ListItemIdentifiersResult getItemIdentifiersUntil(
             List<ScopedFilter> filters, int offset, int length, String setSpec,
-            Date until) throws OAIException;
+            Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of identifiers. The metadata prefix parameter is internally converted to a list of filters.
@@ -163,7 +163,7 @@ public interface ItemRepository {
      */
     public ListItemIdentifiersResult getItemIdentifiers(
             List<ScopedFilter> filters, int offset, int length, String setSpec,
-            Date from, Date until) throws OAIException;
+            Date from, Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -177,7 +177,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItems(List<ScopedFilter> filters,
-                                     int offset, int length) throws OAIException;
+                                     int offset, int length, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -192,7 +192,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItems(List<ScopedFilter> filters,
-                                     int offset, int length, Date from) throws OAIException;
+                                     int offset, int length, Date from, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -207,7 +207,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItemsUntil(List<ScopedFilter> filters,
-                                          int offset, int length, Date until) throws OAIException;
+                                          int offset, int length, Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -223,7 +223,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItems(List<ScopedFilter> filters,
-                                     int offset, int length, Date from, Date until) throws OAIException;
+                                     int offset, int length, Date from, Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -238,7 +238,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItems(List<ScopedFilter> filters,
-                                     int offset, int length, String setSpec) throws OAIException;
+                                     int offset, int length, String setSpec, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -254,7 +254,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItems(List<ScopedFilter> filters,
-                                     int offset, int length, String setSpec, Date from) throws OAIException;
+                                     int offset, int length, String setSpec, Date from, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -270,7 +270,7 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItemsUntil(List<ScopedFilter> filters,
-                                          int offset, int length, String setSpec, Date until) throws OAIException;
+                                          int offset, int length, String setSpec, Date until, String scrollId) throws OAIException;
 
     /**
      * Gets a paged list of items. The metadata prefix parameter is internally converted to a list of filters.
@@ -287,6 +287,6 @@ public interface ItemRepository {
      * @see <a href="client://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords">List Records Definition</a>
      */
     public ListItemsResults getItems(List<ScopedFilter> filters,
-                                     int offset, int length, String setSpec, Date from, Date until) throws OAIException;
+                                     int offset, int length, String setSpec, Date from, Date until, String scrollId) throws OAIException;
 
 }

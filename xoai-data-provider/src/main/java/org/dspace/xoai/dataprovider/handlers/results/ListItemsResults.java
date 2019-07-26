@@ -17,34 +17,45 @@ import java.util.List;
  * @version 3.1.0
  */
 public class ListItemsResults {
-    private boolean hasMore;
-    private List<Item> results;
-    private int totalResults = -1;
+  private boolean hasMore;
+  private List<Item> results;
+  private int totalResults = -1;
+  private String scrollId;
 
-    public ListItemsResults(boolean hasMoreResults, List<Item> results) {
-        this.hasMore = hasMoreResults;
-        this.results = results;
-    }
+  public ListItemsResults(boolean hasMoreResults, List<Item> results) {
+    this.hasMore = hasMoreResults;
+    this.results = results;
+  }
 
-    public ListItemsResults(boolean hasMoreResults, List<Item> results, int total) {
-        this.hasMore = hasMoreResults;
-        this.results = results;
-        this.totalResults = total;
-    }
+  public ListItemsResults(boolean hasMoreResults, List<Item> results, int total) {
+    this.hasMore = hasMoreResults;
+    this.results = results;
+    this.totalResults = total;
+  }
 
-    public boolean hasMore() {
-        return hasMore;
-    }
+  public boolean hasMore() {
+    return hasMore;
+  }
 
-    public List<Item> getResults() {
-        return results;
-    }
+  public List<Item> getResults() {
+    return results;
+  }
 
-    public boolean hasTotalResults() {
-        return this.totalResults > 0;
-    }
+  public boolean hasTotalResults() {
+    return this.totalResults > 0;
+  }
 
-    public int getTotal() {
-        return this.totalResults;
-    }
+  public int getTotal() {
+    return this.totalResults;
+  }
+
+  public String getScrollId() {
+    return scrollId;
+  }
+
+  public ListItemsResults setScrollId(String scrollId) {
+    this.scrollId = scrollId;
+    return this;
+  }
+
 }

@@ -24,7 +24,7 @@
 
     <groupId>org.dspace</groupId>
     <artifactId>xoai</artifactId>
-    <version>4.2.1-SNAPSHOT</version>
+    <version>4.2.0-KEEPS</version>
 
     <organization>
         <name>DuraSpace</name>
@@ -66,14 +66,12 @@
         <tag>HEAD</tag>
     </scm>
 
-    <!--
-        Distribution Management is currently used by the Continuum
-        server to update snapshots it generates. This will also be used
-        on release to deploy release versions to the repository by the
-        release manager.
-    -->
     <distributionManagement>
-        <!-- further distribution management is found upstream in the sonatype parent -->
+      <repository>
+         <id>keeps_artifactory</id>
+         <name>KEEP SOLUTIONS artifactory</name>
+         <url>https://artifactory.keep.pt/artifactory/keep</url>
+      </repository>
     </distributionManagement>
 
     <repositories>

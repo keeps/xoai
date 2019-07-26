@@ -38,7 +38,7 @@ public abstract class VerbHandler<T extends XmlWritable> {
     }
 
     public T handle (OAIRequest parameters) throws HandlerException, InvalidResumptionTokenException, OAIException {
-        return handle(parameters.compile());
+        return handle(parameters.compile(repository.getResumptionTokenFormatter()));
     }
 
     public T handle (OAIRequestParametersBuilder parameters) throws OAIException, HandlerException, InvalidResumptionTokenException {

@@ -13,6 +13,7 @@ import org.dspace.xoai.dataprovider.exceptions.IllegalVerbException;
 import org.dspace.xoai.dataprovider.exceptions.UnknownParameterException;
 import org.dspace.xoai.exceptions.InvalidResumptionTokenException;
 import org.dspace.xoai.services.api.DateProvider;
+import org.dspace.xoai.services.api.ResumptionTokenFormat;
 import org.dspace.xoai.services.impl.UTCDateProvider;
 
 import java.text.ParseException;
@@ -123,8 +124,8 @@ public class OAIRequest {
         return this.map.keySet();
     }
 
-    public OAICompiledRequest compile () throws IllegalVerbException, InvalidResumptionTokenException, UnknownParameterException, BadArgumentException, DuplicateDefinitionException {
-        return OAICompiledRequest.compile(this);
+    public OAICompiledRequest compile (ResumptionTokenFormat resumptionTokenFormat) throws IllegalVerbException, InvalidResumptionTokenException, UnknownParameterException, BadArgumentException, DuplicateDefinitionException {
+        return OAICompiledRequest.compile(this, resumptionTokenFormat);
     }
 
 }

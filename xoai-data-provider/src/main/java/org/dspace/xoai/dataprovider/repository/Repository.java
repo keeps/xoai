@@ -10,56 +10,57 @@ package org.dspace.xoai.dataprovider.repository;
 
 import org.dspace.xoai.dataprovider.filter.FilterResolver;
 import org.dspace.xoai.services.api.ResumptionTokenFormat;
+import org.dspace.xoai.services.impl.SimpleResumptionTokenFormat;
 
 public class Repository {
-    private FilterResolver filterResolver;
+  private FilterResolver filterResolver;
 
-    public static Repository repository () {
-        return new Repository();
-    }
+  public static Repository repository() {
+    return new Repository();
+  }
 
-    private RepositoryConfiguration configuration;
-    private ItemRepository itemRepository;
-    private SetRepository setRepository;
-    private ResumptionTokenFormat resumptionTokenFormatter;
+  private RepositoryConfiguration configuration;
+  private ItemRepository itemRepository;
+  private SetRepository setRepository;
+  private ResumptionTokenFormat resumptionTokenFormatter;
 
-    public RepositoryConfiguration getConfiguration() {
-        return configuration;
-    }
+  public RepositoryConfiguration getConfiguration() {
+    return configuration;
+  }
 
-    public Repository withConfiguration(RepositoryConfiguration configuration) {
-        this.configuration = configuration;
-        return this;
-    }
+  public Repository withConfiguration(RepositoryConfiguration configuration) {
+    this.configuration = configuration;
+    return this;
+  }
 
-    public ItemRepository getItemRepository() {
-        return itemRepository;
-    }
+  public ItemRepository getItemRepository() {
+    return itemRepository;
+  }
 
-    public Repository withItemRepository(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
-        return this;
-    }
+  public Repository withItemRepository(ItemRepository itemRepository) {
+    this.itemRepository = itemRepository;
+    return this;
+  }
 
-    public SetRepository getSetRepository() {
-        return setRepository;
-    }
+  public SetRepository getSetRepository() {
+    return setRepository;
+  }
 
-    public Repository withSetRepository(SetRepository setRepository) {
-        this.setRepository = setRepository;
-        return this;
-    }
+  public Repository withSetRepository(SetRepository setRepository) {
+    this.setRepository = setRepository;
+    return this;
+  }
 
-    public ResumptionTokenFormat getResumptionTokenFormatter() {
-        return resumptionTokenFormatter;
-    }
+  public ResumptionTokenFormat getResumptionTokenFormatter() {
+    return resumptionTokenFormatter != null ? resumptionTokenFormatter : new SimpleResumptionTokenFormat();
+  }
 
-    public Repository withResumptionTokenFormatter(ResumptionTokenFormat resumptionTokenFormatter) {
-        this.resumptionTokenFormatter = resumptionTokenFormatter;
-        return this;
-    }
+  public Repository withResumptionTokenFormatter(ResumptionTokenFormat resumptionTokenFormatter) {
+    this.resumptionTokenFormatter = resumptionTokenFormatter;
+    return this;
+  }
 
-    public FilterResolver getFilterResolver() {
-        return filterResolver;
-    }
+  public FilterResolver getFilterResolver() {
+    return filterResolver;
+  }
 }

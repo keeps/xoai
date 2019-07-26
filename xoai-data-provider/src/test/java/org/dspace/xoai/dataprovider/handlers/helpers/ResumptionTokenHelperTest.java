@@ -31,7 +31,7 @@ public class ResumptionTokenHelperTest {
         ResumptionTokenHelper underTest = new ResumptionTokenHelper(value, MAX_PER_PAGE)
                 .withTotalResults(TOTAL_RESULTS);
 
-        ResumptionToken result = underTest.resolve(HAS_MORE_RESULTS);
+        ResumptionToken result = underTest.resolve(HAS_MORE_RESULTS, null);
         assertThat(result.getCompleteListSize(), is(TOTAL_RESULTS));
         assertThat(result.getValue().getOffset(), is(MAX_PER_PAGE));
     }
@@ -44,7 +44,7 @@ public class ResumptionTokenHelperTest {
         ResumptionTokenHelper underTest = new ResumptionTokenHelper(value, MAX_PER_PAGE)
                 .withTotalResults(TOTAL_RESULTS);
 
-        ResumptionToken.Value result = underTest.resolve(HAS_MORE_RESULTS).getValue();
+        ResumptionToken.Value result = underTest.resolve(HAS_MORE_RESULTS, null).getValue();
 
         assertNotEquals(value.getOffset(), result.getOffset());
         assertEquals(value.getFrom(), result.getFrom());
@@ -55,13 +55,13 @@ public class ResumptionTokenHelperTest {
 
     @Test
     public void shouldReturnEmptyValueIfNoMoreResultsAndWithResumptionToken() throws Exception {
-        ResumptionToken.Value value = new ResumptionToken.Value().next(100);
+        ResumptionToken.Value value = new ResumptionToken.Value().next(100, null);
         assertThat(value.isEmpty(), is(false));
 
         ResumptionTokenHelper underTest = new ResumptionTokenHelper(value, MAX_PER_PAGE)
                 .withTotalResults(TOTAL_RESULTS);
 
-        ResumptionToken result = underTest.resolve(NOT_HAS_MORE_RESULTS);
+        ResumptionToken result = underTest.resolve(NOT_HAS_MORE_RESULTS, null);
         assertThat(result.getCompleteListSize(), is(TOTAL_RESULTS));
         assertThat(result.getValue().isEmpty(), is(true));
     }
@@ -72,7 +72,7 @@ public class ResumptionTokenHelperTest {
         ResumptionTokenHelper underTest = new ResumptionTokenHelper(value, MAX_PER_PAGE)
                 .withTotalResults(TOTAL_RESULTS);
 
-        ResumptionToken result = underTest.resolve(NOT_HAS_MORE_RESULTS);
+        ResumptionToken result = underTest.resolve(NOT_HAS_MORE_RESULTS, null);
         assertThat(result, is(nullValue()));
     }
 }

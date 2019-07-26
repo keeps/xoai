@@ -17,34 +17,45 @@ import java.util.List;
  * @version 3.1.0
  */
 public class ListItemIdentifiersResult {
-    private boolean hasMore;
-    private List<ItemIdentifier> results;
-    private int totalResults = -1;
+  private boolean hasMore;
+  private List<ItemIdentifier> results;
+  private int totalResults = -1;
+  private String scrollId;
 
-    public ListItemIdentifiersResult(boolean hasMoreResults, List<ItemIdentifier> results) {
-        this.hasMore = hasMoreResults;
-        this.results = results;
-    }
+  public ListItemIdentifiersResult(boolean hasMoreResults, List<ItemIdentifier> results) {
+    this.hasMore = hasMoreResults;
+    this.results = results;
+  }
 
-    public ListItemIdentifiersResult(boolean hasMoreResults, List<ItemIdentifier> results, int totalResults) {
-        this.hasMore = hasMoreResults;
-        this.results = results;
-        this.totalResults = totalResults;
-    }
+  public ListItemIdentifiersResult(boolean hasMoreResults, List<ItemIdentifier> results, int totalResults) {
+    this.hasMore = hasMoreResults;
+    this.results = results;
+    this.totalResults = totalResults;
+  }
 
-    public boolean hasMore() {
-        return hasMore;
-    }
+  public boolean hasMore() {
+    return hasMore;
+  }
 
-    public List<ItemIdentifier> getResults() {
-        return results;
-    }
+  public List<ItemIdentifier> getResults() {
+    return results;
+  }
 
-    public boolean hasTotalResults() {
-        return this.totalResults > 0;
-    }
+  public boolean hasTotalResults() {
+    return this.totalResults > 0;
+  }
 
-    public int getTotal() {
-        return this.totalResults;
-    }
+  public int getTotal() {
+    return this.totalResults;
+  }
+
+  public ListItemIdentifiersResult setScrollId(String scrollId) {
+    this.scrollId = scrollId;
+    return this;
+  }
+
+  public String getScrollId() {
+    return scrollId;
+  }
+
 }
