@@ -22,8 +22,6 @@ import org.dspace.xoai.services.impl.UTCDateProvider;
 
 import java.util.*;
 
-import javax.swing.text.SimpleAttributeSet;
-
 import static java.util.Arrays.asList;
 
 public class OAIRequestParametersBuilder implements Builder<OAIRequest> {
